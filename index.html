@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kenalan Yuk, Interaksi Antarorganisme! – IPAS Kelas 5</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap">
+<style>
+:root{--bg:#d9f0ff;--bg2:#a9dcff;--card:#ffffff;--ink:#0b3a66;--line:#0b3a66;--blue:#1e88e5;--blue2:#0d5fb3;--soft:#e3f3ff;--ok:#1fa65a;--okbg:#dcf8e7;--no:#e0603a;--nobg:#ffeadf;--sun:#ffd23f;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0a2748;--bg2:#0f3a6b;--card:#123f73;--ink:#eaf5ff;--line:#021325;--blue:#4aa8ff;--blue2:#2b8de6;--soft:#18508f;--okbg:#14502f;--nobg:#5a2a1a}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0a2748;--bg2:#0f3a6b;--card:#123f73;--ink:#eaf5ff;--line:#021325;--blue:#4aa8ff;--blue2:#2b8de6;--soft:#18508f;--okbg:#14502f;--nobg:#5a2a1a}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:"Baloo 2","Comic Sans MS","Trebuchet MS",sans-serif;font-weight:500;font-size:19px;line-height:1.4;color:var(--ink);background:linear-gradient(var(--bg2),var(--bg) 60%);background-color:var(--bg);overflow-x:hidden}
+.cloud{position:fixed;font-size:56px;opacity:.85;animation:drift 40s linear infinite;pointer-events:none;z-index:0}
+.cloud:nth-child(2){top:18%;animation-duration:60s;font-size:40px;animation-delay:-20s}
+.cloud:nth-child(3){top:60%;animation-duration:50s;animation-delay:-35s}
+@keyframes drift{from{left:-100px}to{left:105%}}
+.app{position:relative;z-index:1;max-width:860px;margin:0 auto;padding:14px 14px 30px}
+.bar{display:flex;gap:6px;margin-bottom:12px}
+.bar i{flex:1;height:14px;border-radius:9px;background:var(--card);border:3px solid var(--line)}
+.bar i.on{background:var(--sun)}
+.slide{display:none;background:var(--card);border:4px solid var(--line);border-radius:28px;box-shadow:0 8px 0 var(--line);padding:22px;animation:pop .45s cubic-bezier(.3,1.6,.5,1)}
+.slide.show{display:block}
+@keyframes pop{from{transform:scale(.9) translateY(12px);opacity:0}}
+h1{font-size:clamp(32px,7vw,52px);line-height:1.05;margin:6px 0;color:var(--blue2);font-weight:800}
+h2{font-size:clamp(26px,5vw,36px);margin:0 0 10px;color:var(--blue2);font-weight:800}
+p{margin:8px 0}
+.hero{text-align:center}
+.scene{font-size:clamp(44px,10vw,72px);letter-spacing:6px;margin:6px 0}
+.bounce{display:inline-block;animation:bob 2s ease-in-out infinite}
+.bounce:nth-child(2){animation-delay:.3s}.bounce:nth-child(3){animation-delay:.6s}.bounce:nth-child(4){animation-delay:.9s}
+@keyframes bob{50%{transform:translateY(-12px) rotate(6deg)}}
+.id{display:inline-block;text-align:left;background:var(--soft);border:3px dashed var(--blue);border-radius:18px;padding:10px 18px;margin:10px 0;font-size:17px}
+.btn{font:inherit;font-weight:800;font-size:20px;color:#fff;background:var(--blue);border:4px solid var(--line);border-radius:999px;padding:8px 24px;cursor:pointer;box-shadow:0 5px 0 var(--line);transition:transform .1s,box-shadow .1s}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(4px);box-shadow:0 1px 0 var(--line)}
+.btn:focus-visible,.opt:focus-visible,.tab:focus-visible,.chip:focus-visible{outline:4px solid var(--sun);outline-offset:2px}
+.btn.alt{background:var(--card);color:var(--ink)}
+.btn[disabled]{opacity:.35;cursor:not-allowed}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
+.goal{display:flex;gap:12px;align-items:center;background:var(--soft);border:3px solid var(--line);border-radius:18px;padding:10px 14px;margin:10px 0}
+.goal b{font-size:34px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 12px}
+.tab,.chip{font:inherit;font-weight:700;font-size:17px;color:var(--ink);background:var(--soft);border:3px solid var(--line);border-radius:999px;padding:5px 14px;cursor:pointer}
+.tab.on{background:var(--blue);color:#fff}
+.panel{display:none;background:var(--soft);border:3px solid var(--line);border-radius:20px;padding:12px 16px}
+.panel.on{display:block;animation:pop .35s ease}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:8px}
+.mini{background:var(--card);border:3px solid var(--line);border-radius:16px;padding:8px 12px}
+.mini b{color:var(--blue2)}
+.scen{text-align:center;font-size:clamp(22px,4.5vw,28px);background:var(--soft);border:3px solid var(--line);border-radius:22px;padding:14px;margin:10px 0}
+.scen .big{font-size:60px;display:block}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.chip:hover{background:var(--blue);color:#fff}
+.fb{margin-top:12px;border:3px solid var(--line);border-radius:18px;padding:10px 14px;display:none}
+.fb.ok{display:block;background:var(--okbg);animation:pop .4s}
+.fb.no{display:block;background:var(--nobg);animation:shake .4s}
+@keyframes shake{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.q{font-size:clamp(20px,4vw,25px);font-weight:700;margin:6px 0 12px}
+.opt{display:block;width:100%;text-align:left;font:inherit;font-size:19px;color:var(--ink);background:var(--card);border:3px solid var(--line);border-radius:16px;padding:8px 14px;margin:8px 0;cursor:pointer;box-shadow:0 4px 0 var(--line)}
+.opt:hover:not([disabled]){background:var(--soft)}
+.opt.right{background:var(--okbg);border-color:var(--ok)}
+.opt.wrong{background:var(--nobg);border-color:var(--no)}
+.opt[disabled]{cursor:default}
+.stars{font-size:46px;text-align:center}
+.score{font-size:clamp(40px,10vw,64px);font-weight:800;color:var(--blue2);text-align:center;line-height:1}
+.mood{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:10px 0}
+.mood button{font-size:42px;background:var(--soft);border:3px solid var(--line);border-radius:20px;padding:2px 12px;cursor:pointer}
+.mood button.on{background:var(--sun);transform:scale(1.15)}
+.conf{position:fixed;top:-30px;font-size:28px;z-index:9;pointer-events:none;animation:fall 1.6s ease-in forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg);opacity:.6}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="cloud" style="top:6%">☁️</div><div class="cloud">☁️</div><div class="cloud">☁️</div>
+<div class="app">
+<div class="bar" id="bar" aria-hidden="true"></div>
+
+<section class="slide hero" id="s0">
+  <div class="scene"><span class="bounce">🌳</span><span class="bounce">🐝</span><span class="bounce">🐟</span><span class="bounce">🦅</span></div>
+  <h1>Siapa Bersama Siapa?</h1>
+  <p>Yuk, kenali cara makhluk hidup saling berhubungan di alam sekitar kita. 🌍</p>
+  <div class="id"><b>IPAS · Kelas 5 SD</b><br>Bab: Bentuk interaksi antarorganisme dalam ekosistem</div>
+  <p><label for="nm">Halo, siapa namamu?</label><br>
+  <input id="nm" maxlength="20" placeholder="Tulis namamu di sini" style="font:inherit;font-size:20px;color:var(--ink);background:var(--soft);border:3px solid var(--line);border-radius:14px;padding:6px 12px;text-align:center"></p>
+  <button class="btn" onclick="start()">Mulai Belajar! 🚀</button>
+</section>
+
+<section class="slide" id="s1">
+  <h2>🎯 Tujuan Belajar Kita</h2>
+  <p id="hi">Hai, Teman Alam!</p>
+  <p>Setelah petualangan ini, kamu akan bisa:</p>
+  <div class="goal"><b>🔍</b><span><b>Mengenali</b> jenis interaksi antarorganisme dalam ekosistem.</span></div>
+  <div class="goal"><b>🧩</b><span><b>Membedakan</b> pemangsaan, persaingan, dan simbiosis.</span></div>
+  <div class="goal"><b>🤝</b><span><b>Menentukan</b> mutualisme, komensalisme, atau parasitisme dari contoh di sekitarmu.</span></div>
+</section>
+
+<section class="slide" id="s2">
+  <h2>📚 Materi Seru</h2>
+  <p>Ketuk tombol di bawah untuk membuka penjelasannya!</p>
+  <div class="tabs" id="tabs"></div>
+  <div class="panel on" data-p="0">
+    <p><b>Organisme</b> adalah makhluk hidup. Di alam, organisme tidak hidup sendirian. Mereka saling berhubungan, dan hubungan ini disebut <b>interaksi antarorganisme</b>.</p>
+    <div class="grid"><div class="mini">🐘🌿🐟🦅<br>Hewan, tumbuhan, dan manusia saling memengaruhi.</div><div class="mini">🤔 <b>Kuncinya:</b> tanya dirimu, siapa yang <b>untung</b> dan siapa yang <b>rugi</b>?</div></div>
+  </div>
+  <div class="panel" data-p="1">
+    <p>Dua interaksi yang sering kita lihat:</p>
+    <div class="grid"><div class="mini">🦅➡️🐭 <b>Pemangsaan</b>: pemangsa memakan mangsanya. Pemangsa untung, mangsa rugi.</div><div class="mini">🐐⚔️🐄 <b>Persaingan</b>: makhluk hidup berebut makanan, air, atau tempat. Kedua pihak sama-sama rugi.</div></div>
+  </div>
+  <div class="panel" data-p="2">
+    <p><b>Simbiosis</b> = hidup berdampingan dengan erat. Ada 3 macam:</p>
+    <div class="grid"><div class="mini">🐝🌸 <b>Mutualisme</b>: kedua pihak untung. Lebah dapat madu, bunga diserbuki.</div><div class="mini">🐟🦈 <b>Komensalisme</b>: satu untung, satunya tidak rugi dan tidak untung. Ikan remora ikut hiu.</div><div class="mini">🪱🧍 <b>Parasitisme</b>: satu untung, satunya rugi. Cacing pita merugikan inangnya.</div></div>
+  </div>
+</section>
+
+<section class="slide" id="s3">
+  <h2>🎮 Ayo Tebak Interaksinya!</h2>
+  <p>Baca kejadian di alam, lalu ketuk jenis interaksi yang tepat.</p>
+  <div class="scen" id="scen"></div>
+  <div class="chips" id="chips"></div>
+  <div class="fb" id="afb"></div>
+  <div style="text-align:center;margin-top:12px"><button class="btn" id="anext" style="display:none" onclick="nextScen()">Kejadian berikutnya ➡️</button></div>
+</section>
+
+<section class="slide" id="s4">
+  <h2>📝 Kuis Penjelajah Alam</h2>
+  <p id="qn" style="font-weight:700;color:var(--blue2)"></p>
+  <div class="q" id="qt"></div>
+  <div id="qo"></div>
+  <div class="fb" id="qfb"></div>
+  <div style="text-align:center;margin-top:12px"><button class="btn" id="qnext" style="display:none" onclick="nextQ()">Lanjut ➡️</button></div>
+</section>
+
+<section class="slide" id="s5">
+  <h2>🏆 Hasil dan Refleksi</h2>
+  <div class="stars" id="stars"></div>
+  <div class="score" id="score"></div>
+  <p id="msg" style="text-align:center;font-size:21px"></p>
+  <div class="goal"><b>💡</b><span><b>Ingat ya:</b> pemangsaan, persaingan, dan simbiosis (mutualisme, komensalisme, parasitisme). Selalu tanya: siapa untung, siapa rugi?</span></div>
+  <p><b>Refleksi:</b> Bagaimana perasaanmu setelah belajar hari ini?</p>
+  <div class="mood" id="mood"></div>
+  <p id="rmsg" style="text-align:center"></p>
+  <p>Coba ceritakan kepada temanmu: <b>interaksi apa yang pernah kamu lihat di sekitar rumah atau sekolah?</b> 🏡</p>
+  <div style="text-align:center"><button class="btn alt" onclick="restart()">Main lagi 🔄</button></div>
+</section>
+
+<div class="nav"><button class="btn alt" id="prev" onclick="go(-1)">⬅️ Kembali</button><button class="btn" id="next" onclick="go(1)">Lanjut ➡️</button></div>
+</div>
+
+<script>
+var cur=0,N=6,quizDone=false,actDone=false,name="";
+var $=function(i){return document.getElementById(i)};
+var bar=$("bar");for(var i=0;i<N;i++)bar.appendChild(document.createElement("i"));
+function show(n){cur=n;for(var i=0;i<N;i++){$("s"+i).classList.toggle("show",i===n);bar.children[i].classList.toggle("on",i<=n)}
+ $("prev").style.display=(n===0||n===4)?"none":"";
+ var hide=n===0||n===5||(n===4)||(n===3&&!actDone);
+ $("next").style.display=hide?"none":"";
+ if(n===4&&quizDone)$("next").style.display="";
+ window.scrollTo({top:0,behavior:"smooth"})}
+function go(d){show(Math.max(0,Math.min(N-1,cur+d)))}
+function start(){name=$("nm").value.trim();$("hi").textContent="Hai, "+(name||"Teman Alam")+"! 👋";show(1)}
+function confetti(){var e=["⭐","🎉","🌟","🍃","💙"];for(var i=0;i<14;i++){var c=document.createElement("div");c.className="conf";c.textContent=e[i%5];c.style.left=Math.random()*95+"%";c.style.animationDelay=Math.random()*.4+"s";document.body.appendChild(c);setTimeout(function(x){x.remove()},2200,c)}}
+var praise=["Hebat sekali! 🌟","Wah, kamu pintar! 🎉","Tepat sekali! ⭐","Luar biasa, Penjelajah Alam! 🏅","Keren! Pertahankan ya! 💙"];
+
+/* Materi */
+var tn=["🌍 Interaksi Itu Apa?","🦅 Pemangsaan & Persaingan","🤝 Simbiosis"];
+tn.forEach(function(t,i){var b=document.createElement("button");b.className="tab"+(i?"":" on");b.textContent=t;b.onclick=function(){document.querySelectorAll(".tab").forEach(function(x,j){x.classList.toggle("on",j===i)});document.querySelectorAll(".panel").forEach(function(x,j){x.classList.toggle("on",j===i)})};$("tabs").appendChild(b)});
+
+/* Aktivitas */
+var types=["Pemangsaan","Persaingan","Mutualisme","Komensalisme","Parasitisme"];
+var sc=[
+["🐸🦟","Katak menangkap dan memakan nyamuk.",0,"Katak memangsa nyamuk, jadi ini pemangsaan."],
+["🦁🐆","Singa dan macan tutul berebut daging rusa yang sama.",1,"Keduanya berebut makanan yang sama, itu persaingan."],
+["🐝🌸","Lebah mengisap nektar bunga dan membantu penyerbukan bunga.",2,"Lebah dapat makanan dan bunga terbantu penyerbukan. Kedua pihak untung, itu mutualisme."],
+["🐟🦈","Ikan remora menempel pada hiu dan memakan sisa makanannya. Hiu tidak terganggu.",3,"Remora untung, hiu tidak rugi dan tidak untung. Itu komensalisme."],
+["🪱🧍","Cacing pita hidup di usus manusia dan mengambil makanannya.",4,"Cacing untung, manusia rugi. Itu parasitisme."],
+["🐍🐁","Ular menelan tikus yang lewat di sawah.",0,"Ular memangsa tikus. Pemangsa untung, mangsa rugi."]];
+var si=0;
+types.forEach(function(t,i){var b=document.createElement("button");b.className="chip";b.textContent=t;b.onclick=function(){pick(i)};$("chips").appendChild(b)});
+function loadScen(){var s=sc[si];$("scen").innerHTML='<span class="big bounce">'+s[0]+'</span>'+s[1]+'<br><small>Kejadian '+(si+1)+' dari '+sc.length+'</small>';$("afb").className="fb";$("anext").style.display="none";document.querySelectorAll(".chip").forEach(function(c){c.disabled=false})}
+function pick(i){var s=sc[si],f=$("afb");
+ if(i===s[2]){f.className="fb ok";f.innerHTML="<b>"+praise[si%5]+"</b> "+s[3];confetti();document.querySelectorAll(".chip").forEach(function(c){c.disabled=true});
+  if(si<sc.length-1){$("anext").style.display=""}else{actDone=true;f.innerHTML+="<br><b>Semua kejadian terjawab! Ketuk Lanjut untuk ke kuis.</b>";$("next").style.display=""}}
+ else{f.className="fb no";f.innerHTML="Hampir! Coba pikirkan lagi: siapa yang untung dan siapa yang rugi? 🤔";void f.offsetWidth}}
+function nextScen(){si++;loadScen()}
+loadScen();
+
+/* Kuis */
+var Q=[
+["Interaksi antarorganisme adalah hubungan antara…",["Makhluk hidup dengan makhluk hidup","Batu dengan air","Matahari dengan tanah","Udara dengan awan"],0,"Organisme berarti makhluk hidup. Jadi interaksi antarorganisme adalah hubungan antar makhluk hidup."],
+["Elang menangkap dan memakan tikus di sawah. Interaksi ini disebut…",["Mutualisme","Pemangsaan","Parasitisme","Komensalisme"],1,"Elang memakan tikus sebagai mangsanya. Hewan yang memakan hewan lain disebut pemangsaan."],
+["Dua ekor ayam berebut makanan di halaman. Interaksi ini disebut…",["Persaingan","Mutualisme","Pemangsaan","Komensalisme"],0,"Keduanya berebut makanan yang sama, sehingga disebut persaingan."],
+["Lebah menghisap nektar dan membantu penyerbukan bunga. Kedua makhluk hidup mendapat untung. Ini disebut…",["Parasitisme","Pemangsaan","Mutualisme","Persaingan"],2,"Jika kedua pihak sama-sama untung, itu simbiosis mutualisme."],
+["Kutu menempel di tubuh kucing dan mengisap darahnya sehingga kucing kurus. Ini contoh…",["Mutualisme","Komensalisme","Persaingan","Parasitisme"],3,"Kutu untung, kucing rugi. Itu simbiosis parasitisme."],
+["Burung membuat sarang di pohon besar. Burung untung, pohon tidak rugi. Ini contoh…",["Komensalisme","Parasitisme","Pemangsaan","Mutualisme"],0,"Satu pihak untung dan pihak lain tidak dirugikan, itu komensalisme."],
+["Pada simbiosis parasitisme, apa yang terjadi pada kedua organisme?",["Keduanya untung","Satu untung, satunya rugi","Keduanya rugi","Satu untung, satunya tidak terpengaruh"],1,"Parasitisme: parasit untung, inangnya rugi. Satu untung dan satunya tidak terpengaruh adalah komensalisme."],
+["Kambing dan sapi di padang berebut rumput yang sama. Interaksi ini disebut…",["Mutualisme","Parasitisme","Pemangsaan","Persaingan"],3,"Mereka memperebutkan makanan yang sama, jadi disebut persaingan."],
+["Burung jalak hinggap di punggung kerbau dan memakan kutunya. Kerbau jadi bersih dari kutu. Ini contoh…",["Mutualisme","Parasitisme","Pemangsaan","Persaingan"],0,"Jalak dapat makanan, kerbau bersih dari kutu. Keduanya untung, itu mutualisme."],
+["Benalu tumbuh di pohon mangga, mengambil makanannya, dan pohon menjadi lemah. Ini contoh…",["Komensalisme","Mutualisme","Parasitisme","Persaingan"],2,"Benalu untung, pohon mangga rugi. Itu parasitisme."]];
+var qi=0,score=0;
+function loadQ(){var q=Q[qi];$("qn").textContent="Soal "+(qi+1)+" dari "+Q.length;$("qt").textContent=q[0];$("qo").innerHTML="";
+ q[1].forEach(function(t,i){var b=document.createElement("button");b.className="opt";b.textContent=String.fromCharCode(65+i)+". "+t;b.onclick=function(){ans(i)};$("qo").appendChild(b)});
+ $("qfb").className="fb";$("qnext").style.display="none"}
+function ans(i){var q=Q[qi],o=$("qo").children,f=$("qfb");
+ for(var j=0;j<o.length;j++)o[j].disabled=true;
+ if(i===q[2]){score++;o[i].classList.add("right");f.className="fb ok";f.innerHTML="<b>"+praise[qi%5]+"</b> Jawabanmu benar!";confetti()}
+ else{o[i].classList.add("wrong");o[q[2]].classList.add("right");f.className="fb no";f.innerHTML="<b>Belum tepat, tidak apa-apa!</b> Jawaban yang benar: "+String.fromCharCode(65+q[2])+". "+q[3]}
+ var n=$("qnext");n.style.display="";n.textContent=qi===Q.length-1?"Lihat hasilku 🏆":"Lanjut ➡️"}
+function nextQ(){if(qi<Q.length-1){qi++;loadQ()}else{finish()}}
+function finish(){quizDone=true;var s=score*10;$("score").textContent=s+" / 100";
+ var st=score>=9?3:score>=7?2:score>=5?1:0;$("stars").textContent="⭐".repeat(st)+"☆".repeat(3-st);
+ $("msg").textContent=(name?name+", ":"")+(score>=9?"kamu Penjelajah Alam sejati! "+score+" soal benar. 🎉":score>=7?"bagus sekali! "+score+" soal benar. Sedikit lagi sempurna! 🌟":score>=5?"lumayan! "+score+" soal benar. Baca materi lagi, yuk! 📚":"jangan menyerah! "+score+" soal benar. Ulangi materi dan coba lagi ya! 💪");
+ if(score>=7)confetti();show(5)}
+loadQ();
+
+/* Refleksi */
+[["😄","Senang sekali! Terus semangat belajar ya!"],["🙂","Bagus! Boleh baca materi lagi supaya makin paham."],["😐","Tidak apa-apa. Coba main aktivitas lagi, pasti lebih paham."],["🤔","Yuk, tanya gurumu tentang bagian yang belum jelas."]].forEach(function(m){var b=document.createElement("button");b.textContent=m[0];b.setAttribute("aria-label","Perasaan "+m[0]);b.onclick=function(){document.querySelectorAll(".mood button").forEach(function(x){x.classList.remove("on")});b.classList.add("on");$("rmsg").textContent=m[1]};$("mood").appendChild(b)});
+function restart(){qi=0;score=0;si=0;quizDone=false;actDone=false;loadQ();loadScen();$("rmsg").textContent="";document.querySelectorAll(".mood button").forEach(function(x){x.classList.remove("on")});show(0)}
+show(0);
+</script>
+</body>
+</html>
